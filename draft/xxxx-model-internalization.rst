@@ -1,5 +1,5 @@
 ========================
-DEP XXXX: Django model internalization XXXX
+DEP XXXX: Django model internationalization XXXX
 ========================
 
 :DEP: XXXX
@@ -12,15 +12,15 @@ DEP XXXX: Django model internalization XXXX
 Abstract
 ========
 
-This DEP describes the implementation of a model internalization backend API.
+This DEP describes the implementation of a model internationalization backend API.
 
 Motivation
 ==========
 
-Internalization is a complex problem where there are several different but valid
+Internationalization is a complex problem where there are several different but valid
 approaches that depend on the specific constraints and problem at hand.
 
-Currently there are several 3rd party apps that tackle the model internalization
+Currently there are several 3rd party apps that tackle the model internationalization
 with somewhat success. Currently I see two main problems:
 
  -  As a developer, once having decided upon a specific app for my model 
