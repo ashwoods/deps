@@ -4,21 +4,21 @@ DEP XXXX: Django model internationalization XXXX
 
 :DEP: XXXX
 :Author: Ashley Camba Garrido
-:Type: Process
+:Type: Feature
 :Created: 2015-06-01
-:Last-Modified: 2015-06-01
+:Last-Modified: 2016-09-1
 
 
 Abstract
 ========
 
-This DEP describes the implementation of a model internationalization backend API.
+This DEP describes an API for plugging in .
 
 Motivation
 ==========
 
 Internationalization is a complex problem where there are several different but valid
-approaches that depend on the specific constraints and problem at hand.
+approaches that depend on the specific data and application usage.
 
 Currently there are several 3rd party apps that tackle the model internationalization
 with somewhat success. Currently I see two main problems:
@@ -26,7 +26,7 @@ with somewhat success. Currently I see two main problems:
  -  As a developer, once having decided upon a specific app for my model 
     translations in my project, I mostly(always?) have to patch/override/ 
     other 3rd party apps if I want to make them translatable
- -  As a 3rd party app developer, if I decide to make an app 'internacionalized'
+ -  As a 3rd party app developer, if I decide to implement model translations,
     I might pick a certain method that is incompatible with what a project developer
     wants.
  -  Obviously not having a unified API makes developers have to learn a different 
@@ -37,12 +37,12 @@ with somewhat success. Currently I see two main problems:
 Implementation
 ==============
 
-This feature could be implementing by having a TRANSLATIONS_BACKENDS system similar
+This feature could be implementing by having a TRANSLATIONS_BACKENDS API similar
 to the django database settings or django storages that allow 3rd party developers 
-create backends that provide hooks to be used where necesary, mainly on model creation,
+to create backends that provide hooks to be used where necesary, mainly on model creation,
 and in the ORM.
 
-Some ideas on how it could look like:
+Mind dump:
 
 mixin?
 
@@ -96,7 +96,7 @@ Problems:
     - ModelForms (translatable model form)
         def __init__(self, *args, **kwargs, from_lang='fi', edit_in='en')
     - Saving logic
-    - Query filter intragtion?
+    - Query filter intregtion?
     - Validation?
     - Fetching translations (in bulk with ModelIterator override)
     - Fetching translations when not loading from DB (MyModel(pk=1).translations should
